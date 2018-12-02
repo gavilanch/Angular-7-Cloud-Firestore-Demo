@@ -10,12 +10,16 @@ import { environment } from 'src/environments/environment';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TodoListComponent } from './todo/todo-list/todo-list.component';
+import { TodoFormComponent } from './todo/todo-form/todo-form.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TodoListComponent,
+    TodoFormComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [TodoFormComponent]
 })
 export class AppModule { }

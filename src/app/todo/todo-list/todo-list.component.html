@@ -1,3 +1,24 @@
 <h4>Todo List</h4>
 
 <button class="btn btn-primary" (click)="clickAddTodo()">Add Todo</button>
+
+<table class="table table-striped" *ngIf="todos && todos.length > 0">
+    <thead>
+        <tr>
+            <th>Done</th>
+            <th>Title</th>
+            <th>Created Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let todo of todos, let index = index">
+            <td><input type="checkbox" [checked]="todo.done" (change)="checkedDone(index)" /></td>
+            <td [ngClass]="{'done': todo.done, 'not-done': !todo.done}">{{todo.title}}</td>
+            <td>{{todo.lastModifiedDate | date}}</td>
+            <td>
+                <button class="btn btn-primary" (click)="handleEditClick(todo)">Edit</button>
+                <button class="btn btn-danger" (click)="handleDeleteClick(todo.id, index)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
